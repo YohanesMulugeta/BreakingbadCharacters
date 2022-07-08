@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import Spinner from "./Spinner";
 
 const SearchBar = ({ setQuery }) => {
   const [text, setText] = useState("");
@@ -22,14 +23,18 @@ const SearchBar = ({ setQuery }) => {
   return (
     <div>
       <section>
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <input
             onChange={changeHandler}
             value={text}
             placeholder="Search Character"
             autoFocus
             type="text"
-            name="Search"
+            name="search"
           />
         </form>
       </section>

@@ -4,6 +4,7 @@ import apis from "./component/apis";
 import NavBar from "./component/NavBar";
 import SearchBar from "./component/SearchBar";
 import CharacterList from "./component/CharacterList";
+import Spinner from "./component/Spinner";
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -14,18 +15,18 @@ const App = () => {
     const fetcher = async () => {
       const { data } = await apis.get(`characters?name=${query}`);
 
-      console.log(data);
       setItems(data);
+      setLoading(false);
     };
 
-    if (query) fetcher();
+    fetcher();
   }, [query]);
 
   return (
     <div className="app">
       <NavBar />
       <SearchBar query={query} setQuery={setQuery} />
-      <CharacterList items={items} />
+      {loading ? <Spinner /> : <CharacterList items={items} />}
     </div>
   );
 };
