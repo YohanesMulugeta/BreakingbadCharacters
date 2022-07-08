@@ -9,6 +9,16 @@ const SearchBar = ({ setQuery }) => {
     setText(e.target.value);
   };
 
+  useEffect(() => {
+    // --------------------------------------------- setting time out to set query
+    const timeOutId = setTimeout(() => {
+      setQuery(text);
+    }, 750);
+
+    // --------------------------------------------- Cleanup function
+    return () => clearTimeout(timeOutId);
+  }, [text]);
+
   return (
     <div>
       <section>
