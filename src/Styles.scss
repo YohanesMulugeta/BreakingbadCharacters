@@ -36,6 +36,7 @@ header img {
   justify-content: center;
 }
 
+// -------------------------------------- Search Component
 .search {
   height: 100px;
 }
@@ -50,11 +51,15 @@ input[type="text"] {
   margin: auto;
 }
 
+// ------------------------------------------- Characterlist component
+
 .cards {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(4, 1fr);
 }
+
+// ----------------------------------------- CharacterListItem component
 
 .card {
   cursor: pointer;
