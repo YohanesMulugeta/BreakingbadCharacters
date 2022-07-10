@@ -4,9 +4,9 @@ import logo from "../Images/logo.png";
 
 const NavBar = () => {
   return (
-    <div>
+    <header className="center">
       <img src={logo} alt="logo" />
-    </div>
+    </header>
   );
 };
 
